@@ -1,6 +1,8 @@
 # Ambient Mix
 
-This template should help get you started developing with Vue 3 in Vite.
+A soundscape web app for relaxing background audio.
+
+Work in progress...
 
 ## Recommended IDE Setup
 
