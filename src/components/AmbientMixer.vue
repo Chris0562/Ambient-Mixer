@@ -18,15 +18,23 @@
     </div>
     <div v-for="(sound, index) in sounds" :key="index" class="sound-control">
       <p>{{ sound.name }}</p>
-      <button @click="toggleSound(index)">{{ sound.isPlaying ? 'Off' : 'On' }}</button>
-      <input
-        type="range"
-        min="0"
-        max="1"
-        step="0.01"
-        v-model="sound.volume"
-        @input="updateVolume(index)"
-      />
+
+      <div class="soundsContainer">
+        <div class="toggleContainer">
+          <input type="checkbox" :id="'check-' + index" />
+          <label :for="'check-' + index" class="buttonToggle" @click="toggleSound(index)"></label>
+        </div>
+
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          v-model="sound.volume"
+          @input="updateVolume(index)"
+        />
+        <br />
+      </div>
     </div>
   </div>
 </template>
@@ -163,10 +171,6 @@ export default {
 </script>
 
 <style scoped>
-.ambient-mixer {
-  /* Add your styles here */
-}
-
 .sound-control {
   margin-bottom: 20px;
 }
